@@ -7,3 +7,4 @@ Front-end kód webu je open source, vítáme vás, abyste pomohli optimalizovat 
 * [front-end kód](https://github.com/xxai-art/web)
 * [Jazykové balíčky pro web jako celek](https://github.com/xxai-art/web/tree/main/i18n)
 * [Jazykové balíčky pro přihlašovací moduly](https://github.com/wacpkg/user/tree/main/ui.i18n)
+* [Webová vícejazyčná dokumentace](https://github.com/xxai-doc)
