@@ -17,14 +17,14 @@ Front-end programovací jazyk je [@w5/coffee_plus](http://npmjs.com/@w5/coffee_p
 
 Stavte na následujících 3 projektech
 
-### [@w5/mdt](https://www.npmjs.com/package/@w5/mdt)
+* [@w5/mdt](https://www.npmjs.com/package/@w5/mdt)
 
-Šablona markdown s příponou `.mdt` může odkazovat na externí soubory se syntaxí podobnou `<+ ./coffee_plus/import.js>` .
+  Přípona je `.mdt` , k odkazování na externí soubory můžete použít syntaxi podobnou `<+ ./coffee_plus/import.js>` a generovat markdown s příponou `.md` .
 
-[@w5/trmd](https://www.npmjs.com/package/@w5/trmd)
+* [@w5/trmd](https://www.npmjs.com/package/@w5/trmd)
 
-Překlad Markdown nepřekládá kódy a odkazy a ukládá přeložené věty do mezipaměti. Pokud je překlad upraven, ale původní text není upraven, jeho opětovné provedení nepřepíše úpravu překladu.
+  Překlad Markdown nepřekládá kódy a odkazy a ukládá přeložené věty do mezipaměti. Pokud je překlad upraven, ale původní text není upraven, jeho opětovné provedení nepřepíše úpravu překladu.
 
-[@w5/i18n](https://www.npmjs.com/package/@w5/i18n)
+* [@w5/i18n](https://www.npmjs.com/package/@w5/i18n)
 
-Jazykové soubory pro překlad webových stránek generovaných `yaml` .
+  Jazykové soubory pro překlad webových stránek generovaných `yaml` .
