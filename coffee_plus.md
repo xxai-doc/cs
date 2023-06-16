@@ -2,13 +2,13 @@
 
 [@w5/coffee_plus](http://npmjs.com/@w5/coffee_plus) , přidejte některé funkce na základě syntaxe coffeescriptu, viz [coffee_plus](./coffee_plus.md) .
 
-* deklarovat proměnnou
+## deklarovat proměnnou
 
 ```
 + var1, var2
 ```
 
-* deklarační štítek
+## deklarační štítek
 
 `:$` je pro použití s [​​velte](https://svelte.dev/docs#component-format-script-3-$-marks-a-statement-as-reactive) .
 
@@ -90,7 +90,7 @@ $ : (func = function() {
 });
 ```
 
-* rychlý import
+## rychlý import
 
 ```
 > zx/globals:
