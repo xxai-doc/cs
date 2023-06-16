@@ -19,7 +19,7 @@ Stavte na následujících 3 projektech
 
 * [@w5/mdt](https://www.npmjs.com/package/@w5/mdt)
 
-  Přípona je `.mdt` , k odkazování na externí soubory můžete použít syntaxi podobnou `<+ ./coffee_plus/import.js>` a generovat markdown s příponou `.md` .
+  Přípona je `.mdt` , můžete použít syntaxi podobnou `<+ ./coffee_plus/import.js>` k odkazování na externí soubory a generovat markdown s příponou `.md` .
 
 * [@w5/trmd](https://www.npmjs.com/package/@w5/trmd)
 
@@ -28,3 +28,47 @@ Stavte na následujících 3 projektech
 * [@w5/i18n](https://www.npmjs.com/package/@w5/i18n)
 
   Jazykové soubory pro překlad webových stránek generovaných `yaml` .
+
+### Pokyny pro automatizaci překladu dokumentů
+
+Viz repozitář [xxai-art/doc](https://github.com/xxai-art/doc)
+
+Doporučuje se nejprve nainstalovat nodejs, [direnv](https://direnv.net) a [bun](https://github.com/oven-sh/bun) a po vstupu do adresáře spustit `direnv allow` .
+
+Abych se vyhnul příliš velkým skladům přeloženým do stovek jazyků, vytvořil jsem samostatný sklad kódů pro každý jazyk a vytvořil jsem organizaci pro uložení tohoto skladu.
+
+Nastavením proměnné prostředí `GITHUB_ACCESS_TOKEN` a následným spuštěním [create.github.coffee](https://github.com/xxai-art/doc/blob/main/create.github.coffee) se automaticky vytvoří sklad.
+
+Samozřejmě ho můžete dát i do skladu.
+
+Odkaz na překladový skript [run.sh](https://github.com/xxai-art/doc/blob/main/run.sh)
+
+Kód skriptu je interpretován následovně:
+
+[bunx](https://bun.sh/docs/cli/bunx) je náhrada za npx, který je rychlejší. Samozřejmě, pokud nemáte nainstalovaný bun, můžete místo toho použít `npx` .
+
+`bunx mdt zh` vykreslí `.mdt` v adresáři zh jako `.md` , viz 2 propojené soubory níže
+
+* [coffee_plus.mdt](https://github.com/xxai-doc/zh/blob/main/coffee_plus.mdt)
+* [coffee_plus.md](https://github.com/xxai-doc/zh/blob/main/coffee_plus.md)
+
+`bunx i18n` je základní kód pro překlad (pokud máte nainstalovaný pouze `nodejs` , ale nejsou nainstalovány `bun` a `direnv` , můžete k překladu spustit také `npx i18n` ).
+
+Bude analyzovat [i18n.yml](https://github.com/xxai-art/doc/blob/main/i18n.yml) , konfigurace `i18n.yml` v tomto dokumentu je následující:
+
+```
+en:
+zh: ja ko en
+```
+
+Význam je: čínský překlad do japonštiny, korejštiny, angličtiny, anglický překlad do všech ostatních jazyků. Pokud chcete podporovat pouze čínštinu a angličtinu, stačí napsat `zh: en` .
+
+Poslední je [gen.README.coffee](https://github.com/xxai-art/doc/blob/main/gen.README.coffee) , která extrahuje obsah mezi hlavním názvem a prvním titulkem souboru `README.md` každého jazyka a vygeneruje záznam `README.md` . Kód je velmi jednoduchý, můžete se na něj podívat sami.
+
+Pro bezplatný překlad se používá Google API. Pokud nemáte přístup ke Google, nakonfigurujte a nastavte proxy, například:
+
+```
+export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+```
+
+Překladový skript vygeneruje překladovou mezipaměť v adresáři `.i18n` , zkontrolujte ji pomocí `git status` a přidejte ji do úložiště kódu, abyste se vyhnuli opakovaným překladům.
