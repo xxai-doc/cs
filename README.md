@@ -1,10 +1,10 @@
 <p align="center"><a href="https://xxai.art"><img src="https://cdn.jsdelivr.net/gh/xxai-art/doc/logo.svg"/></a><br/><a href="https://xxai.art"><img src="https://cdn.jsdelivr.net/gh/xxai-art/doc/xxai.svg"/></a></p><p align="center"><a href="https://github.com/xxai-art/doc#readme"><img alt="I18N" src="https://cdn.jsdelivr.net/gh/wactax/img/t.svg"/></a>　<a href="https://groups.google.com/u/0/g/xxai-art"><img alt="Google Groups" src="https://cdn.jsdelivr.net/gh/wactax/img/g-groups.svg"/></a></p>
 
-# xxAI.art
+Doporučuje se nejprve nainstalovat nodejs, [direnv](https://direnv.net) , [bun](https://github.com/oven-sh/bun) a po vstupu do adresáře pak `direnv allow` ( [.envrc](https://github.com/xxai-art/doc/blob/main/.envrc) se spustí automaticky po vstupu do adresáře).
 
-Část kódu webových stránek je open source, vítáme vás, abyste pomohli optimalizovat překlad.
+Význam je: čínský překlad do japonštiny, korejštiny, angličtiny, anglický překlad do všech ostatních jazyků. Pokud chcete podporovat pouze čínštinu a angličtinu, stačí napsat `zh: en` .
 
-## front-end kód
+Význam je: čínský překlad do japonštiny, korejštiny, angličtiny, anglický překlad do všech ostatních jazyků. Pokud chcete podporovat pouze čínštinu a angličtinu, stačí napsat `zh: en` .
 
 * [front-end kód](https://github.com/xxai-art/web)
 * [Jazykové balíčky pro web jako celek](https://github.com/xxai-art/web/tree/main/i18n)
@@ -31,15 +31,15 @@ Stavte na následujících 3 projektech
 
 ### Pokyny pro automatizaci překladu dokumentů
 
-Viz repozitář [xxai-art/doc](https://github.com/xxai-art/doc)
+Viz úložiště kódu [xxai-art/doc](https://github.com/xxai-art/doc)
 
-Doporučuje se nejprve nainstalovat nodejs, [direnv](https://direnv.net) a [bun](https://github.com/oven-sh/bun) a po vstupu do adresáře spustit `direnv allow` .
+Doporučuje se nejprve nainstalovat nodejs, [direnv](https://direnv.net) , [bun](https://github.com/oven-sh/bun) a po vstupu do adresáře pak `direnv allow` ( [.envrc](https://github.com/xxai-art/doc/blob/main/.envrc) se spustí automaticky po vstupu do adresáře).
 
-Abych se vyhnul příliš velkým skladům přeloženým do stovek jazyků, vytvořil jsem samostatný sklad kódů pro každý jazyk a vytvořil jsem organizaci pro uložení tohoto skladu.
+Abych se vyhnul velké kódové základně překládané do stovek jazyků, vytvořil jsem samostatnou kódovou základnu pro každý jazyk a vytvořil jsem organizaci pro uložení kódové základny.
 
-Nastavením proměnné prostředí `GITHUB_ACCESS_TOKEN` a následným spuštěním [create.github.coffee](https://github.com/xxai-art/doc/blob/main/create.github.coffee) se automaticky vytvoří sklad.
+Nastavení proměnné prostředí `GITHUB_ACCESS_TOKEN` a následné spuštění [create.github.coffee](https://github.com/xxai-art/doc/blob/main/create.github.coffee) automaticky vytvoří úložiště kódu.
 
-Samozřejmě ho můžete dát i do skladu.
+Samozřejmě to můžete také vložit do kódové základny.
 
 Odkaz na překladový skript [run.sh](https://github.com/xxai-art/doc/blob/main/run.sh)
 
@@ -71,4 +71,8 @@ Pro bezplatný překlad se používá Google API. Pokud nemáte přístup ke Goo
 export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
 ```
 
-Překladový skript vygeneruje překladovou mezipaměť v adresáři `.i18n` , zkontrolujte ji pomocí `git status` a přidejte ji do úložiště kódu, abyste se vyhnuli opakovaným překladům.
+Překladový skript vygeneruje přeloženou mezipaměť v adresáři `.i18n` , zkontrolujte ji pomocí `git status` a přidejte ji do úložiště kódu, abyste předešli opakovaným překladům.
+
+Spusťte prosím `bunx i18n` pokaždé, když změníte překlad pro aktualizaci mezipaměti.
+
+Pokud jsou původní text a překlad upraveny současně, mezipaměť bude zmatená, takže pokud chcete upravit, můžete upravit pouze jednu a poté spustit `bunx i18n` pro aktualizaci mezipaměti.
